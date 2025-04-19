@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Tic Tac Toe</title>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Menu Screen -->
+    <!-- Intro Screen -->
+<div id="intro-screen" class="screen active">
+    <div class="title-container">
+        <h1>3D TIC-TAC-TOE</h1>
+        <div class="subtitle">4×4×4 EDITION</div>
+    </div>
+    <div class="menu-options">
+        <button id="play-btn" class="menu-btn glow-on-hover">
+            <span>PLAY</span>
+        </button>
+        <button id="howtoplay-btn" class="menu-btn glow-on-hover">
+            <span>HOW TO PLAY</span>
+        </button>
+    </div>
+</div>
+
+    <div id="main-menu" class="screen">
+        <div class="title-container">
+            <h1>3D TIC-TAC-TOE</h1>
+            <div class="subtitle">4×4×4 EDITION</div>
+        </div>
+        <div class="menu-options">
+            <button id="singleplayer-btn" class="menu-btn glow-on-hover">
+                <span>SINGLE PLAYER</span>
+            </button>
+            <button id="multiplayer-btn" class="menu-btn glow-on-hover">
+                <span>MULTI PLAYER</span>
+            </button>
+            <button id="rules-btn" class="menu-btn glow-on-hover">
+                <span>HOW TO PLAY</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Difficulty Selection Screen -->
+    <div id="difficulty-menu" class="screen">
+        <div class="title-container">
+            <h1>SELECT DIFFICULTY</h1>
+            <div class="subtitle">VS COMPUTER</div>
+        </div>
+        <div class="menu-options">
+            <button id="easy-btn" class="difficulty-btn glow-on-hover">
+                <span>EASY</span>
+                <div class="difficulty-desc">Good for beginners</div>
+            </button>
+            <button id="difficult-btn" class="difficulty-btn glow-on-hover">
+                <span>DIFFICULT</span>
+                <div class="difficulty-desc">Challenging AI</div>
+            </button>
+            <button id="insane-btn" class="difficulty-btn glow-on-hover">
+                <span>INSANE</span>
+                <div class="difficulty-desc">Nearly unbeatable</div>
+            </button>
+            <button id="back-btn" class="back-btn">
+                <span>← BACK</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="player-turn">
+                <div id="turn-indicator" class="x-turn">PLAYER <span>X</span> TURN</div>
+            </div>
+            <div class="game-controls">
+                <button id="reset-btn">↻ RESTART</button>
+                <button id="main-menu-btn">≡ MENU</button>
+            </div>
+        </div>
+        
+        <div class="board-container">
+            <div class="board-3d-view">
+                <div class="board-layer" data-layer="0"></div>
+                <div class="board-layer" data-layer="1"></div>
+                <div class="board-layer" data-layer="2"></div>
+                <div class="board-layer" data-layer="3"></div>
+            </div>
+        </div>
+    
+        <div id="thinking-indicator" class="thinking-container">
+            <div class="thinking-text">COMPUTER THINKING</div>
+            <div class="thinking-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Game Over Modal -->
+    <div id="gameover-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="gameover-title">PLAYER X WINS!</h2>
+            <div id="gameover-subtitle">3D Diagonal Victory</div>
+            <div class="modal-buttons">
+                <button id="play-again-btn" class="modal-btn">PLAY AGAIN</button>
+                <button id="return-menu-btn" class="modal-btn">MAIN MENU</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rules Modal -->
+    <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>HOW TO PLAY</h2>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <div class="rule-number">1</div>
+                    <p>The game is played on a <strong>4×4×4 grid</strong> (3D space)</p>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">2</div>
+                    <p>Players alternate placing <strong>X</strong> and <strong>O</strong> in empty cells</p>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">3</div>
+                    <p>First to get <strong>4 in a row</strong> wins (horizontal, vertical, or diagonal)</p>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">4</div>
+                    <p>Lines can go <strong>across layers</strong> (3D diagonals count!)</p>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">5</div>
+                    <p>Full board with no winner = <strong>Tie game</strong></p>
+                </div>
+            </div>
+            <button id="close-rules-btn" class="modal-btn">GOT IT!</button>
+        </div>
+    </div>
+    <audio id="place-sound" src="sounds/place.mp3" preload="auto"></audio>
+<audio id="win-sound" src="sounds/win.mp3" preload="auto"></audio>
+<audio id="draw-sound" src="sounds/draw.mp3" preload="auto"></audio>
+
+
+
+
+    <script src="/game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+</body>
+</html>
