@@ -272,7 +272,7 @@ class Game {
                 };
             } else if (this.isTie()) {
                 this.gameEnded = true;
-                return { gameOver: true, winner: null };
+                return { gameOver: true, winner: null, message: "It's a tie!"  };
             } else {
                 // Switch players
                 // In multiplayer: X -> O -> X -> O
